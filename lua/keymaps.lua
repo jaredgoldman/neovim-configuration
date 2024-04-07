@@ -6,7 +6,6 @@ local api = vim.api
 -- Custom commands
 api.nvim_create_user_command('FTermToggle', fterm.toggle, { bang = true })
 api.nvim_create_user_command('FTermClose', fterm.close, { bang = true })
-
 local mappings = {
     n = {
         -- highlighting

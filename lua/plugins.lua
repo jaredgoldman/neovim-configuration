@@ -10,9 +10,20 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
         lazypath,
     })
 end
+
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+    {
+        'nvimdev/dashboard-nvim',
+        event = 'VimEnter',
+        config = function()
+            require('dashboard').setup {
+                theme = "doom"
+            }
+        end,
+        dependencies = { { 'nvim-tree/nvim-web-devicons' } }
+    },
     "tanvirtin/monokai.nvim",
     {
         "onsails/lspkind.nvim",
@@ -69,9 +80,7 @@ require("lazy").setup({
         'windwp/nvim-autopairs',
         event = "InsertEnter",
         config = true
-        -- use opts = {} for passing setup options
-        -- this is equalent to setup({}) function
     },
     'windwp/nvim-ts-autotag',
-    'nvim-treesitter/nvim-treesitter'
+    'nvim-treesitter/nvim-treesitter',
 })

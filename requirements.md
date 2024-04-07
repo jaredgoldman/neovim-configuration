@@ -10,3 +10,5 @@
 - extended history x
 - auto-pairs x
 - lua vim linting x
+- dashboard
+- debugger

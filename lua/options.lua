@@ -48,3 +48,9 @@ api.nvim_create_autocmd({ "BufWritePre" }, {
     pattern = { "*" },
     command = [[if &filetype !~# 'lsp' | %s/\s\+$//e | endif]],
 })
+-- Startup
+vim.api.nvim_create_autocmd("VimEnter", {
+    callback = function()
+        vim.defer_fn(function() vim.cmd("NvimTreeOpen") end, 100) -- Delays NVim Tree opening by 100ms
+    end
+})
