@@ -19,6 +19,7 @@ require('mason-lspconfig').setup({
         'tailwindcss',
         'tsserver',
         'jsonls',
-        'lua_ls'
+        'lua_ls',
+        'prettier'
     },
 })
