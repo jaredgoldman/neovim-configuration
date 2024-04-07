@@ -64,5 +64,13 @@ require("lazy").setup({
         "ThePrimeagen/harpoon",
         branch = "harpoon2",
         requires = { { "nvim-lua/plenary.nvim" } }
-    }
+    },
+    {
+        'windwp/nvim-autopairs',
+        event = "InsertEnter",
+        config = true
+        -- use opts = {} for passing setup options
+        -- this is equalent to setup({}) function
+    },
+    'nvim-treesitter/nvim-treesitter'
 })
