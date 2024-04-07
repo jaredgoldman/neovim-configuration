@@ -56,5 +56,7 @@ require("lazy").setup({
     {
         'nvim-lualine/lualine.nvim',
         dependencies = { 'nvim-tree/nvim-web-devicons' }
-    }
+    },
+    'numToStr/FTerm.nvim',
+    'github/copilot.vim'
 })

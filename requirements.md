@@ -3,6 +3,7 @@
 - lsp with mason x
 - telescope x
 - theming x
-- tabfluline
+- tabfluline x
+- terminal
 - harpoon
 - extended history
