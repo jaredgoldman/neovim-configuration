@@ -8,5 +8,5 @@
 - terminal x
 - harpoon x
 - extended history x
-- auto-pairs
-- lua vim linting
+- auto-pairs x
+- lua vim linting x

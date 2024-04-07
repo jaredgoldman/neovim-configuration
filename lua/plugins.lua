@@ -72,5 +72,6 @@ require("lazy").setup({
         -- use opts = {} for passing setup options
         -- this is equalent to setup({}) function
     },
+    'windwp/nvim-ts-autotag',
     'nvim-treesitter/nvim-treesitter'
 })
