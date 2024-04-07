@@ -10,31 +10,34 @@ api.nvim_create_user_command('FTermClose', fterm.close, { bang = true })
 local mappings = {
     n = {
         -- highlighting
-        ["<leader>nh"] = ":nohl<CR>",
+        ["<leader>nh"]    = ":nohl<CR>",
         -- move between buffers
-        ["<c-h>"]      = "<C-w>h",
-        ["<c-j>"]      = "<C-w>j",
-        ["<c-k>"]      = "<C-w>k",
-        ["<c-l>"]      = "<C-w>l",
+        ["<c-h>"]         = "<C-w>h",
+        ["<c-j>"]         = "<C-w>j",
+        ["<c-k>"]         = "<C-w>k",
+        ["<c-l>"]         = "<C-w>l",
         -- open and close buggers
-        ["<leader>sv"] = "<C-w>s",
-        ["<leader>sh"] = "<C-w>v",
-        ["<leader>se"] = "<C-w>=",
-        ["<leader>sx"] = ":close<CR>",
+        ["<leader>sv"]    = "<C-w>s",
+        ["<leader>sh"]    = "<C-w>v",
+        ["<leader>se"]    = "<C-w>=",
+        ["<leader>sx"]    = ":close<CR>",
         -- nvim-tree
-        ["<leader>e"]  = ":NvimTreeToggle<CR>",
-        ["<leader>cf"] = ":NvimTreeCollapse<CR>",
+        ["<leader>e"]     = ":NvimTreeToggle<CR>",
+        ["<leader>cf"]    = ":NvimTreeCollapse<CR>",
         -- LSP
-        ["<leader>ls"] = ":lspstop<CR>",
-        ["<leader>lo"] = ":lspstart<CR>",
+        ["<leader>ls"]    = ":lspstop<CR>",
+        ["<leader>lo"]    = ":lspstart<CR>",
         -- Telescope
-        ["<leader>ff"] = "<cmd>Telescope find_files<CR>",
-        ["<leader>fw"] = "<cmd>Telescope live_grep<CR>",
-        ["<leader>fc"] = "<cmd>Telescope grep_string<CR>",
-        ["<leader>th"] = "<cmd>Themery<CR>",
-        ["<leader>sm"] = ":MaximizerToggle<CR>",
+        ["<leader>ff"]    = "<cmd>Telescope find_files<CR>",
+        ["<leader>fw"]    = "<cmd>Telescope live_grep<CR>",
+        ["<leader>fc"]    = "<cmd>Telescope grep_string<CR>",
+        ["<leader>th"]    = "<cmd>Themery<CR>",
+        ["<leader>sm"]    = ":MaximizerToggle<CR>",
         -- FTerm
-        ["<leader>h"]  = "<cmd>FTermToggle<CR>"
+        ["<leader>h"]     = "<cmd>FTermToggle<CR>",
+        -- Harpoon
+        ["<leader>a"]     = "<cmd>HarpoonAdd<CR>",
+        ["<C-e>"] = "<cmd>HarpoonUI<CR>"
     },
     x = {
         ["<A-j>"] = ":move '>+1<CR>gv-gv",

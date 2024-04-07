@@ -4,6 +4,9 @@
 - telescope x
 - theming x
 - tabfluline x
-- terminal
+    - rice
+- terminal x
 - harpoon
-- extended history
+- extended history x
+- auto-pairs
+- lua vim linting
