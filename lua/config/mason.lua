@@ -20,6 +20,5 @@ require('mason-lspconfig').setup({
         'tsserver',
         'jsonls',
         'lua_ls',
-        'prettier'
     },
 })
