@@ -4,6 +4,7 @@ require("conform").setup({
 		python = { "isort", "black" },
 		javascript = { { "prettierd", "prettier" } },
 		json = { { "prettierd", "prettier" } },
+		markdown = { { "marksman", "prettierd", "prettier" } },
 	},
 })
 
