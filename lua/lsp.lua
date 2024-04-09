@@ -1,6 +1,6 @@
 local lspconfig = require("lspconfig")
 
-   local mappings = {
+local mappings = {
 	["<leader>k"] = vim.diagnostic.open_float,
 	["[d"] = vim.diagnostic.goto_prev,
 	["]d"] = vim.diagnostic.goto_next,
@@ -18,9 +18,6 @@ local lspconfig = require("lspconfig")
 	["<leader>rn"] = vim.lsp.buf.rename,
 	["<leader>ca"] = vim.lsp.buf.code_action,
 	["gr"] = vim.lsp.buf.references,
-	["<leader>fm"] = function()
-		vim.lsp.buf.format({ async = true })
-	end,
 }
 
 local on_attach = function(client, bufnr)
@@ -37,6 +34,7 @@ local servers = {
 	"intelephense",
 	"tailwindcss",
 	"lua_ls",
+	"marksman",
 }
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()

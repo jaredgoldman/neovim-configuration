@@ -144,4 +144,5 @@ require("lazy").setup({
 		opts = {},
 	},
 	"f-person/git-blame.nvim",
+	"yorickpeterse/nvim-grey",
 })

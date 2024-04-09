@@ -3,7 +3,8 @@ require("conform").setup({
 		lua = { "stylua" },
 		python = { "isort", "black" },
 		javascript = { { "prettierd", "prettier" } },
-		json = { { "prettierd", "prettier" } },
+		typescript = { { "prettierd", "prettier" } },
+		json = { { "prettier", "prettierd" } },
 		markdown = { { "marksman", "prettierd", "prettier" } },
 	},
 })
