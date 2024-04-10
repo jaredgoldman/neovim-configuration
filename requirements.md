@@ -10,5 +10,6 @@
 - extended history x
 - auto-pairs x
 - lua vim linting x
-- dashboard
+- dashboard x
+- suppress vim global warnings x
 - debugger
