@@ -1,10 +1,9 @@
 require("conform").setup({
 	formatters_by_ft = {
 		lua = { "stylua" },
-		python = { "isort", "black" },
 		javascript = { { "prettierd", "prettier" } },
 		typescript = { { "prettierd", "prettier" } },
-		json = { { "prettier", "prettierd" } },
+		json = { { "prettierd", "prettier" } },
 		markdown = { { "marksman", "prettierd", "prettier" } },
 	},
 })

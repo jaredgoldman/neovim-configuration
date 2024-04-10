@@ -3,7 +3,7 @@ require("themery").setup({
 	themes = {
 		{
 			name = "Day",
-			colorscheme = "catppuccin-latte",
+			colorscheme = "catppuccin-frappe",
 		},
 		-- {
 		--   name = "Afternoon",
