@@ -20,14 +20,15 @@ local function toggle_telescope(harpoon_files)
 		})
 		:find()
 end
-
-local function maybe_remove_add()
-	local bufnr = api.nvim_get_current_buf()
-	local mark = harpoon:mark(bufnr)
-	if mark then
-		harpoon:list():add()
+local function toggle_mark()
+	local current_file = api.nvim_buf_get_name(0) -- Get the current buffer's file path
+	local item, index = harpoon:list():get_by_value(current_file)
+	if item then
+		harpoon:list():remove_at(index)
+		print("Removed from Harpoon: " .. current_file)
 	else
-		harpoon:list():remove()
+		harpoon:list():add({ value = current_file })
+		print("Added to Harpoon: " .. current_file)
 	end
 end
 
@@ -39,13 +40,7 @@ api.nvim_create_user_command("HarpoonAdd", function()
 	harpoon:list():add()
 end, { bang = true })
 api.nvim_create_user_command("HarpoonToggleFile", function()
-	maybe_remove_add()
-end, { bang = true })
-api.nvim_create_user_command("HarpoonTogglePrev", function()
-	harpoon:list():prev()
-end, { bang = true })
-api.nvim_create_user_command("HarpoonToggleNext", function()
-	harpoon:list():next()
+	toggle_mark()
 end, { bang = true })
 api.nvim_create_user_command("HarpoonUI", function()
 	toggle_telescope(harpoon:list())

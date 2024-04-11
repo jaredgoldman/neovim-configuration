@@ -12,4 +12,5 @@
 - lua vim linting x
 - dashboard x
 - suppress vim global warnings x
+- harpoon toggle file
 - debugger

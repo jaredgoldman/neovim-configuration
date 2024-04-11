@@ -30,7 +30,7 @@ local mappings = {
     -- FTerm
     ["<leader>h"] = "<cmd>FTermToggle<CR>",
     -- Harpoon
-    ["<leader>a"] = "<cmd>HarpoonAdd<CR>",
+    ["<leader>a"] = "<cmd>HarpoonToggleFile<CR>",
     ["<C-e>"] = "<cmd>HarpoonUI<CR>",
     ["<leader>c"] = "<cmd>HarpoonClear<CR>",
     -- Formating
