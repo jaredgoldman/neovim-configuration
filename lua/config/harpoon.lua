@@ -20,6 +20,7 @@ local function toggle_telescope(harpoon_files)
 		})
 		:find()
 end
+
 local function toggle_mark()
 	local current_file = api.nvim_buf_get_name(0) -- Get the current buffer's file path
 	local item, index = harpoon:list():get_by_value(current_file)
