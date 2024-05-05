@@ -57,3 +57,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     formatter.format(nil)
   end,
 })
+
+-- Logging --
+-- opt.verbosefile = '~/.config/nvim/nvim_log' -- Set the location for the log file
+-- opt.verbose = 15                            -- Set the verbosity level
