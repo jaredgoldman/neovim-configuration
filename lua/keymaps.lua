@@ -37,6 +37,8 @@ local mappings = {
 		["<leader>fm"] = "<cmd>Format<CR>",
 		-- Disable help menu
 		["<F1>"] = "<nop>",
+		-- Toggle word wrap
+		["<leader>w"] = "<cmd>ToggleWrap<CR>",
 	},
 	x = {
 		["<A-j>"] = ":move '>+1<CR>gv-gv",
