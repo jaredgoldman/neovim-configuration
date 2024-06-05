@@ -12,6 +12,8 @@ vim.api.nvim_create_user_command("ToggleWrap", function()
 		print("Word wrap disabled")
 	else
 		vim.wo.wrap = true
+		vim.wo.linebreak = true
+		vim.wo.breakindent = true
 		print("Word wrap enabled")
 	end
 end, {})
