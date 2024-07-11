@@ -6,7 +6,7 @@ local formatter = require("config.conform")
 -- Hint: use `:h <option>` to figure out the meaning if needed
 opt.clipboard = "unnamedplus" -- use system clipboard
 opt.completeopt = { "menu", "menuone", "noselect" }
-opt.mouse = "a"               -- allow the mouse to be used in Nvim
+opt.mouse = "a" -- allow the mouse to be used in Nvim
 
 -- General
 opt.wrap = false
@@ -19,24 +19,25 @@ opt.cursorline = true
 opt.backspace = "indent,eol,start"
 
 -- Tab
-opt.tabstop = 2      -- number of visual spaces per TAB
-opt.softtabstop = 2  -- number of spacesin tab when editing
-opt.shiftwidth = 2   -- insert 4 spaces on a tab
+opt.tabstop = 2 -- number of visual spaces per TAB
+opt.softtabstop = 2 -- number of spacesin tab when editing
+opt.shiftwidth = 2 -- insert 4 spaces on a tab
 opt.expandtab = true -- tabs are spaces, mainly because of python
 
 -- UI config
-opt.number = true        -- show absolute number
+opt.number = true -- show absolute number
 -- opt.relativenumber = true -- add numbers to each line on the left side
-opt.cursorline = true    -- highlight cursor line underneath the cursor horizontally
-opt.splitbelow = true    -- open new vertical split bottom
-opt.splitright = true    -- open new horizontal splits right
+opt.cursorline = true -- highlight cursor line underneath the cursor horizontally
+opt.splitbelow = true -- open new vertical split bottom
+opt.splitright = true -- open new horizontal splits right
 opt.termguicolors = true -- enabl 24-bit RGB color in the TUI
-
+api.nvim_set_hl(0, "LineNr", { fg = "#5f87af", blend = 0 })
+api.nvim_set_hl(0, "CursorLineNr", { fg = "#ffd700", blend = 0 })
 -- Searching
-opt.incsearch = true  -- search as characters are entered
-opt.hlsearch = false  -- do not highlight matches
+opt.incsearch = true -- search as characters are entered
+opt.hlsearch = false -- do not highlight matches
 opt.ignorecase = true -- ignore case in searches by default
-opt.smartcase = true  -- but make it case sensitive if an uppercase is entered
+opt.smartcase = true -- but make it case sensitive if an uppercase is entered
 
 -- History
 opt.undofile = true
@@ -46,16 +47,16 @@ opt.undodir = os.getenv("HOME") .. "/.local/share/nvim/undo"
 api.nvim_set_option("list", true)
 api.nvim_set_option("listchars", "eol:$,nbsp:_,tab:>-,trail:~,extends:>,precedes:<")
 api.nvim_create_autocmd({ "BufWritePre" }, {
-  pattern = { "*" },
-  command = [[if &filetype !~# 'lsp' | %s/\s\+$//e | endif]],
+	pattern = { "*" },
+	command = [[if &filetype !~# 'lsp' | %s/\s\+$//e | endif]],
 })
 
 -- Formatting
 vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = "*",
-  callback = function()
-    formatter.format(nil)
-  end,
+	pattern = "*",
+	callback = function()
+		formatter.format(nil)
+	end,
 })
 
 -- Logging --
