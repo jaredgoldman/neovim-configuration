@@ -14,6 +14,5 @@ require("themery").setup({
 			colorscheme = "catppuccin-mocha",
 		},
 	},
-	themeConfigFile = "~/.config/nvim/lua/config/theme.lua", -- Desibed below
 	livePreview = true, -- Apply theme while browsing. Default to true.
 })
