@@ -9,6 +9,16 @@ require("conform").setup({
     jsonc = { { "prettierd", "prettier" } },
     markdown = { { "marksman", "prettier", "prettierd" } },
   },
+  stop_after_first = {
+    lua = true,
+    javascript = true,
+    typescript = true,
+    javascriptreact = true,
+    typescriptreact = true,
+    json = true,
+    jsonc = true,
+    markdown = true,
+  },
 })
 
 local M = {}
