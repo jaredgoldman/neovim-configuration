@@ -39,6 +39,7 @@ local mappings = {
 		["<F1>"] = "<nop>",
 		-- Toggle word wrap
 		["<leader>w"] = "<cmd>ToggleWrap<CR>",
+		-- Debugger
 	},
 	x = {
 		["<A-j>"] = ":move '>+1<CR>gv-gv",
