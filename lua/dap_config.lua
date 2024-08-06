@@ -1,5 +1,6 @@
 local dap, dapui = require("dap"), require("dapui")
-require("dapui").setup()
+dapui.setup()
+
 -- -- Set keymaps to control the debugger
 vim.keymap.set("n", "<F5>", dap.continue)
 vim.keymap.set("n", "<F10>", dap.step_over)
@@ -24,7 +25,7 @@ require("dap-vscode-js").setup({
 		"node",
 		"chrome",
 	}, -- which adapters to register in nvim-dap
-	log_file_path = "(stdpath cache)/dap_vscode_js.log", -- Path for file logging
+	log_file_path = "./dap_vscode_js.log", -- Path for file logging
 	-- log_file_level = false -- Logging level for output to file. Set to false to disable file logging.
 	-- log_console_level = vim.log.levels.ERROR -- Logging level for output to console. Set to false to disable console output.
 })
@@ -59,20 +60,15 @@ for _, language in ipairs(js_based_languages) do
 end
 
 dap.listeners.before.attach.dapui_config = function()
-  print("before attach")
 	dapui.open()
 end
 dap.listeners.before.launch.dapui_config = function()
-  print("before launch")
 	dapui.open()
 end
 dap.listeners.before.event_terminated.dapui_config = function()
-  print("before terminated")
 	dapui.close()
 end
 dap.listeners.before.event_exited.dapui_config = function()
-  print("before exited")
 	dapui.close()
 end
-
 vim.keymap.set("n", "<leader>ui", require("dapui").toggle)
