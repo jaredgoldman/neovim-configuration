@@ -22,7 +22,11 @@ require("lazy").setup({
 		opts = dashboard.dashboard_config,
 	},
 	-- Theming
-	"tanvirtin/monokai.nvim",
+	-- "tanvirtin/monokai.nvim",
+	{
+		"olimorris/onedarkpro.nvim",
+		priority = 1000, -- Ensure it loads first
+	},
 	"yorickpeterse/nvim-grey",
 	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 	{
@@ -90,13 +94,12 @@ require("lazy").setup({
 	"f-person/git-blame.nvim",
 	-- debugger stuff
 	"mfussenegger/nvim-dap",
-
 	{
 		"mxsdev/nvim-dap-vscode-js",
 		dependencies = {
 			"microsoft/vscode-js-debug",
-			build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
 		},
+		build = "cd ~/.local/share/nvim/lazy/vscode-js-debug && npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
 	},
 	{
 		"rcarriga/nvim-dap-ui",
@@ -106,5 +109,3 @@ require("lazy").setup({
 		end,
 	},
 })
-
--- require('dap')
