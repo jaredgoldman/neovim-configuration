@@ -32,6 +32,8 @@ end
 local servers = {
   "tsserver",
   "lua_ls",
+  "eslint",
+  "jsonls"
 }
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -66,4 +68,3 @@ for _, lsp in ipairs(servers) do
     },
   })
 end
-
