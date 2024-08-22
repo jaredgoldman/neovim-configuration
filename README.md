@@ -20,7 +20,3 @@ My attempt to create my own neovim configuration with just enough features to be
 
 1. Clone this repository to your `~/.config/nvim` directory.
 2. Run `:Lazy` to install all plugins.
-
-## TODO
-
-- Add debugger
