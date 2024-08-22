@@ -6,15 +6,14 @@ My attempt to create my own neovim configuration with just enough features to be
 
 - file tree with nvim-tree
 - lsp management with mason-nvim
-- telescope for searching/grepping x
-- theming with themery x
-- tabfluline x
-- terminal with f-term x
-- harpoon for deving on subsets of files x
-- extended history x
-- auto-pairs x
-- lua vim linting x
-- dashboard x
+- telescope for searching/grepping
+- theming with themery
+- tabfluline
+- terminal with f-term
+- harpoon for deving on subsets of files
+- extended history
+- auto-pairs
+- debugger with nvim-dap and dapui
 
 ## Installation
 
