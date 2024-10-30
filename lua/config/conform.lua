@@ -1,13 +1,14 @@
 require("conform").setup({
   formatters_by_ft = {
     lua = { "stylua" },
-    javascript = { { "prettierd", "prettier" } },
-    typescript = { { "prettierd", "prettier" } },
+    javascript = { "prettierd", "prettier" },
+    typescript = { "prettierd", "prettier" },
     javascriptreact = { "prettierd", "prettier" },
     typescriptreact = { "prettierd", "prettier" },
-    json = { { "prettierd", "prettier" } },
-    jsonc = { { "prettierd", "prettier" } },
-    markdown = { { "marksman", "prettier", "prettierd" } },
+    json = { "prettierd", "prettier" },
+    jsonc = { "prettierd", "prettier" },
+    markdown = { "marksman", "prettier", "prettierd" },
+    python = { "black", "autopep8" }, -- Added Python support
   },
   stop_after_first = {
     lua = true,
@@ -18,6 +19,7 @@ require("conform").setup({
     json = true,
     jsonc = true,
     markdown = true,
+    python = true, -- Added stop condition for Python
   },
 })
 

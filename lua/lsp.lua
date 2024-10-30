@@ -30,10 +30,11 @@ local on_attach = function(client, bufnr)
 end
 
 local servers = {
-  "tsserver",
+  "ts_ls",
   "lua_ls",
   "eslint",
-  "jsonls"
+  "jsonls",
+  "pyright"
 }
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -57,14 +58,30 @@ capabilities.textDocument.completion.completionItem = {
 }
 
 for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup({
+  local config = {
     on_attach = on_attach,
     capabilities = capabilities,
-    -- For suppressing vim error messages in config
-    settings = {
+  }
+
+  -- Server-specific settings
+  if lsp == "lua_ls" then
+    config.settings = {
       Lua = {
         diagnostics = { globals = { "vim" } },
       },
-    },
-  })
+    }
+  elseif lsp == "pyright" then
+    config.settings = {
+      python = {
+        analysis = {
+          autoSearchPaths = true,
+          useLibraryCodeForTypes = true,
+          diagnosticMode = "workspace",
+        },
+        venvPath = vim.fn.expand("~/.cache/pypoetry/virtualenvs"),
+      },
+    }
+  end
+
+  lspconfig[lsp].setup(config)
 end
