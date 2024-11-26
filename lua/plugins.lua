@@ -73,7 +73,6 @@ require("lazy").setup({
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 	},
 	"numToStr/FTerm.nvim",
-	"github/copilot.vim",
 	"nvim-lua/plenary.nvim",
 	{
 		"ThePrimeagen/harpoon",
@@ -106,6 +105,12 @@ require("lazy").setup({
 		dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
 		config = function()
 			require("dapui").setup()
+		end,
+	},
+	{
+		"supermaven-inc/supermaven-nvim",
+		config = function()
+			require("supermaven-nvim").setup({})
 		end,
 	},
 })
