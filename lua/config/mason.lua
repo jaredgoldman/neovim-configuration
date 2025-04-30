@@ -14,6 +14,7 @@ require("mason-lspconfig").setup({
 		"ts_ls",
 		"jsonls",
 		"lua_ls",
-    "pyright"
+    "pyright",
+    "intelephense"
 	},
 })
