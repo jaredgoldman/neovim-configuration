@@ -8,7 +8,8 @@ require("conform").setup({
     json = { "prettierd", "prettier" },
     jsonc = { "prettierd", "prettier" },
     markdown = { "marksman", "prettier", "prettierd" },
-    python = { "black", "autopep8" }, -- Added Python support
+    python = { "black", "autopep8" },
+    html = { "html-lsp", "prettier", "prettierd" }, -- Added HTML support
   },
   stop_after_first = {
     lua = true,
@@ -19,12 +20,11 @@ require("conform").setup({
     json = true,
     jsonc = true,
     markdown = true,
-    python = true, -- Added stop condition for Python
+    python = true,
+    html = true, -- Added stop condition for HTML
   },
 })
-
 local M = {}
-
 M.format = function(args)
   local range = nil
   if args and args.count ~= -1 then
@@ -37,9 +37,7 @@ M.format = function(args)
   end
   require("conform").format({ async = true, lsp_fallback = true, range = range })
 end
-
 vim.api.nvim_create_user_command("Format", function(args)
   M.format(args)
 end, { range = true })
-
 return M
