@@ -4,7 +4,6 @@ local global = vim.g
 local formatter = require("config.conform")
 
 -- Hint: use `:h <option>` to figure out the meaning if needed
-opt.clipboard = "unnamedplus" -- use system clipboard
 opt.completeopt = { "menu", "menuone", "noselect" }
 opt.mouse = "a" -- allow the mouse to be used in Nvim
 
@@ -62,3 +61,17 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 -- Logging --
 -- opt.verbosefile = '~/.config/nvim/nvim_log' -- Set the location for the log file
 -- opt.verbose = 15                            -- Set the verbosity level
+
+-- Clipboard
+opt.clipboard = "unnamedplus" -- use system clipboard
+global.clipboard = {
+	name = "OSC 52",
+	copy = {
+		["+"] = require("vim.ui.clipboard.osc52").copy("+"),
+		["*"] = require("vim.ui.clipboard.osc52").copy("*"),
+	},
+	paste = {
+		["+"] = require("vim.ui.clipboard.osc52").paste("+"),
+		["*"] = require("vim.ui.clipboard.osc52").paste("*"),
+	},
+}
