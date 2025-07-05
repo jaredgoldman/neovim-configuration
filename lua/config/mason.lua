@@ -18,10 +18,11 @@ require("mason-lspconfig").setup({
 		"pyright",
 		"intelephense",
 		-- New additions
-		"html",           -- HTML LSP
-		"bashls",         -- Bash LSP
-		"yamlls",         -- YAML LSP
-		"sqlls",          -- SQL LSP
+		"html", -- HTML LSP
+		"bashls", -- Bash LSP
+		"yamlls", -- YAML LSP
+		"sqlls", -- SQL LSP
+    "marksman", -- Markdown LSP
 	},
 })
 
@@ -34,20 +35,20 @@ require("mason-tool-installer").setup({
 		"prettierd",
 		-- New additions
 		-- JavaScript/TypeScript
-		"eslint_d",       -- Fast ESLint daemon
+		"eslint_d", -- Fast ESLint daemon
 		-- Python
-		"ruff",           -- Fast Python linter/formatter
-		"isort",          -- Python import sorter
-		"mypy",           -- Python type checker
+		"ruff", -- Fast Python linter/formatter
+		"isort", -- Python import sorter
+		"mypy", -- Python type checker
 		-- PHP
-		"php-cs-fixer",   -- PHP formatter
-		"phpstan",        -- PHP static analyzer
+		"php-cs-fixer", -- PHP formatter
+		"phpstan", -- PHP static analyzer
 		-- Bash
-		"shellcheck",     -- Shell script linter
-		"shfmt",          -- Shell formatter
+		"shellcheck", -- Shell script linter
+		"shfmt", -- Shell formatter
 		-- YAML
-		"yamllint",       -- YAML linter
+		"yamllint", -- YAML linter
 		-- SQL
-		"sqlfluff",       -- SQL linter and formatter
+		"sqlfluff", -- SQL linter and formatter
 	},
 })

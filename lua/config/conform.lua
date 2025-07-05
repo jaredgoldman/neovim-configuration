@@ -7,9 +7,9 @@ require("conform").setup({
 		typescriptreact = { "prettierd", "prettier" },
 		json = { "prettierd", "prettier" },
 		jsonc = { "prettierd", "prettier" },
-		markdown = { "marksman", "prettier", "prettierd" },
+		markdown = { "prettier", "prettierd" },
 		python = { "black", "autopep8" },
-		html = { "html-lsp", "prettier", "prettierd" }, -- Added HTML support
+		html = { "prettier", "prettierd" },
 		sh = { "shfmt" },
 	},
 	stop_after_first = {
