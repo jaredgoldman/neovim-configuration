@@ -43,6 +43,18 @@ local mappings = {
 		["<leader>w"] = "<cmd>ToggleWrap<CR>",
 		-- Find and replace
 		["<leader>fr"] = "<cmd>FindAndReplace<CR>",
+		-- Claude
+		["<leader>a"] = nil,
+		["<leader>ac"] = "<cmd>ClaudeCode<cr>",
+		["<leader>af"] = "<cmd>ClaudeCodeFocus<cr>",
+		["<leader>ar"] = "<cmd>ClaudeCode --resume<cr>",
+		["<leader>aC"] = "<cmd>ClaudeCode --continue<cr>",
+		["<leader>am"] = "<cmd>ClaudeCodeSelectModel<cr>",
+		["<leader>ab"] = "<cmd>ClaudeCodeAdd %<cr>",
+		["<leader>as"] = "<cmd>ClaudeCodeSend<cr>",
+		-- Diff management
+		["<leader>aa"] = "<cmd>ClaudeCodeDiffAccept<cr>",
+		["<leader>ad"] = "<cmd>ClaudeCodeDiffDeny<cr>",
 	},
 	x = {
 		["<A-j>"] = ":move '>+1<CR>gv-gv",
@@ -56,6 +68,9 @@ local mappings = {
 	},
 	t = {
 		["C-h"] = "<C-\\><C-n>:FTermClose<CR>",
+	},
+	v = {
+		["<leader>as"] = "<cmd>ClaudeCodeTreeAdd<cr>",
 	},
 }
 
