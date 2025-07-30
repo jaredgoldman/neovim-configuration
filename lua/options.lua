@@ -62,12 +62,30 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 -- opt.verbosefile = '~/.config/nvim/nvim_log' -- Set the location for the log file
 -- opt.verbose = 15                            -- Set the verbosity level
 
--- Clipboard
-opt.clipboard = "unnamedplus" -- use system clipboard
-vim.keymap.set("v", "<leader>sy", function()
-	-- First yank to unnamed register
-	vim.cmd("y")
-	local content = vim.fn.getreg('"')
-	-- Use OSC 52 to copy to system clipboard
-	require("vim.ui.clipboard.osc52").copy("+")({ content })
-end, { desc = "Copy to system clipboard via OSC 52" })
+-- Clipboard configuration for SSH
+if os.getenv("SSH_TTY") then
+	-- SSH session - use OSC 52 for clipboard
+	local function copy(lines, _)
+		require('vim.ui.clipboard.osc52').copy('+')(lines)
+	end
+
+	local function paste()
+		return {vim.fn.split(vim.fn.getreg(''), '\n'), vim.fn.getregtype('')}
+	end
+
+	vim.g.clipboard = {
+		name = 'OSC 52',
+		copy = {
+			['+'] = copy,
+			['*'] = copy,
+		},
+		paste = {
+			['+'] = paste,
+			['*'] = paste,
+		},
+	}
+	opt.clipboard = "unnamedplus"
+else
+	-- Local session - use system clipboard
+	opt.clipboard = "unnamedplus"
+end

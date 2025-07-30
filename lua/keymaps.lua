@@ -55,6 +55,10 @@ local mappings = {
 		-- Diff management
 		["<leader>aa"] = "<cmd>ClaudeCodeDiffAccept<cr>",
 		["<leader>ad"] = "<cmd>ClaudeCodeDiffDeny<cr>",
+		-- Clipboard operations for SSH
+		["<leader>y"] = '"+y', -- Copy to system clipboard
+		["<leader>p"] = '"+p', -- Paste from system clipboard
+		["<leader>Y"] = '"+Y', -- Copy line to system clipboard
 	},
 	x = {
 		["<A-j>"] = ":move '>+1<CR>gv-gv",
@@ -71,6 +75,9 @@ local mappings = {
 	},
 	v = {
 		["<leader>as"] = "<cmd>ClaudeCodeTreeAdd<cr>",
+		-- Clipboard operations for SSH
+		["<leader>y"] = '"+y', -- Copy to system clipboard
+		["<leader>p"] = '"+p', -- Paste from system clipboard
 	},
 }
 
