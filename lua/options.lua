@@ -62,14 +62,23 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 -- opt.verbosefile = '~/.config/nvim/nvim_log' -- Set the location for the log file
 -- opt.verbose = 15                            -- Set the verbosity level
 
--- Clipboard configuration for SSH
-if os.getenv("SSH_TTY") then
-	-- SSH session - use OSC 52 for clipboard
+-- Clipboard configuration for SSH and remote sessions
+local function is_remote_session()
+	return os.getenv("SSH_TTY") ~= nil or os.getenv("SSH_CLIENT") ~= nil or os.getenv("SSH_CONNECTION") ~= nil
+end
+
+if is_remote_session() then
+	-- Remote session - use OSC 52 for clipboard
 	local function copy(lines, _)
-		require('vim.ui.clipboard.osc52').copy('+')(lines)
+		local text = table.concat(lines, '\n')
+		-- Write OSC 52 escape sequence directly
+		io.write(string.format('\027]52;c;%s\027\\', vim.base64.encode(text)))
+		io.flush()
 	end
 
 	local function paste()
+		-- For paste, we'll fall back to the unnamed register
+		-- since OSC 52 doesn't support reading from clipboard
 		return {vim.fn.split(vim.fn.getreg(''), '\n'), vim.fn.getregtype('')}
 	end
 
@@ -85,6 +94,13 @@ if os.getenv("SSH_TTY") then
 		},
 	}
 	opt.clipboard = "unnamedplus"
+	
+	-- Add a manual copy command as backup
+	vim.api.nvim_create_user_command('CopyToClipboard', function()
+		local lines = vim.fn.getline(vim.fn.line("'<"), vim.fn.line("'>"))
+		copy(lines)
+		print("Copied to clipboard via OSC 52")
+	end, { range = true })
 else
 	-- Local session - use system clipboard
 	opt.clipboard = "unnamedplus"
